@@ -1,3 +1,10 @@
 function showSalary(users, age) {
-  // ваш код...
+  let resultUsersSalary = ''
+
+  users.filter(e => e.age <= age)  
+  .map(e => {
+    resultUsersSalary += `${e.name}, ${e.balance}\n`
+  })
+    
+  return resultUsersSalary.slice(0, -1)
 }
