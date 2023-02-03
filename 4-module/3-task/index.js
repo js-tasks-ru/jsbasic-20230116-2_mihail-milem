@@ -19,8 +19,8 @@ function highlight(table) {
 
   // Цикл для работы с классами и аттрибутами
   for(let i = 1; i < tableRow.length; i++){
-    for(let j = 0; j < tableRow[j].children.length; j++){
-      
+    for(let j = 0; j < tableRow[i].children.length; j++){
+    
       // Цвет ряда, в зависимости от значения data-available
       if(tableRow[i].children[j].dataset.available === 'true'){
         tableRow[i].classList.add('available')
