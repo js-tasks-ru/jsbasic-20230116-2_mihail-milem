@@ -3,7 +3,7 @@ function toggleText() {
   const toggleTextBtn = document.querySelector('#text')
 
   toggleBtn.addEventListener('click', () => { 
-    (toggleTextBtn.hasAttribute('hidden')) ? toggleTextBtn.hidden = '' : toggleTextBtn.hidden = 'true'
+    return (toggleTextBtn.hasAttribute('hidden')) ? toggleTextBtn.hidden = '' : toggleTextBtn.hidden = 'true'
     
   })
 }
