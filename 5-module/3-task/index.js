@@ -29,4 +29,5 @@ function initCarousel(direction) {
   (activeSlide === 1) ? carouselArrowLeft.style.display = 'none' : carouselArrowLeft.style.display = '';
 
   carouselInner.style.transform = `translateX(${nextSlide}px)`
+  
 }
