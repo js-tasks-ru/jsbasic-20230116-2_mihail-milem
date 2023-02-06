@@ -1,27 +1,28 @@
 function initCarousel() {
   let activeSlide = 1
-  let nextSlide = 0
+  let nextWithSlide = 0
   const carouselInner = document.querySelector('.carousel__inner');
   const carouselArrowRight = document.querySelector('.carousel__arrow_right');
   const carouselArrowLeft = document.querySelector('.carousel__arrow_left');
-  const carouselWidth = carouselInner.offsetWidth;
+  const slideWidth = carouselInner.offsetWidth;
+  const slideMaximumAmount = carouselInner.children.length;
 
   if(activeSlide) carouselArrowLeft.style.display = 'none'
 
   carouselArrowRight.addEventListener('click', () => {
-    nextSlide -= carouselWidth
+    nextWithSlide -= slideWidth
     activeSlide++
     (activeSlide === 1) ? carouselArrowLeft.style.display = 'none' : carouselArrowLeft.style.display = '';
-    (activeSlide === 4) ? carouselArrowRight.style.display = 'none' : carouselArrowRight.style.display = '';
-    carouselInner.style.transform = `translateX(${nextSlide}px)`
+    (activeSlide === slideMaximumAmount) ? carouselArrowRight.style.display = 'none' : carouselArrowRight.style.display = '';
+    carouselInner.style.transform = `translateX(${nextWithSlide}px)`
   });
 
   carouselArrowLeft.addEventListener('click', () => {
-    nextSlide += carouselWidth
+    nextWithSlide += slideWidth
     activeSlide--
     (activeSlide === 1) ? carouselArrowLeft.style.display = 'none' : carouselArrowLeft.style.display = '';
-    (activeSlide === 4) ? carouselArrowRight.style.display = 'none' : carouselArrowRight.style.display = '';
-    carouselInner.style.transform = `translateX(${nextSlide}px)`
+    (activeSlide === slideMaximumAmount) ? carouselArrowRight.style.display = 'none' : carouselArrowRight.style.display = '';
+    carouselInner.style.transform = `translateX(${nextWithSlide}px)`
     
   });
 }
