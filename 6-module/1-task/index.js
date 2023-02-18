@@ -15,4 +15,5 @@
 export default class UserTable {
   constructor(rows) {
   }
-}
+
+  }
