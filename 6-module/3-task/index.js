@@ -1,9 +1,12 @@
 import createElement from '../../assets/lib/create-element.js';
 
 export default class Carousel {
+
   constructor(slides) {
     this.slides = slides;
-   
+
+    this.offsetWidth = null
+
     this.elem = document.createElement('div')
     this.elem.className = "carousel"
 
@@ -39,27 +42,28 @@ export default class Carousel {
     btns.forEach(btn => {
       btn.addEventListener('click', this.onSlideBtnClick);
     });
-    
-  
+
+    this.initCarousel()
+
   }
 
+
   initCarousel = () => {
-    const carouselInner = document.querySelector('.carousel__inner');
-    const carouselArrowRight = document.querySelector('.carousel__arrow_right');
-    const carouselArrowLeft = document.querySelector('.carousel__arrow_left');
-    const slideWidth = carouselInner.offsetWidth;
+    const carouselInner = this.elem.querySelector('.carousel__inner');
+    const carouselArrowRight = this.elem.querySelector('.carousel__arrow_right');
+    const carouselArrowLeft = this.elem.querySelector('.carousel__arrow_left');
     let activeSlide = 1;
     let nextWithSlide = 0;
 
   
     function handleClick(direction) {
       if(direction === 'right'){
-        nextWithSlide -= slideWidth
+        nextWithSlide -= carouselInner.offsetWidth
         activeSlide++
       }
   
       if(direction === 'left'){
-        nextWithSlide += slideWidth
+        nextWithSlide += carouselInner.offsetWidth
         activeSlide--
       }
   
@@ -92,3 +96,4 @@ export default class Carousel {
 
   
 }
+
